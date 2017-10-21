@@ -11,12 +11,23 @@ Run `npm install` in theme root to install necessary node packages to run webpac
 
 ### Tasks
 `webpack --watch` or `npm run dev`
-Runs all css, js, and php tasks, and starts `watch`|
+
+- Runs all css and js tasks and starts `watch'
 
 ## Front-end
 ### Styles
 The theme uses Bootstrap as a base and extends many of it's classes and mixins from there.
 
+Write:
+- boostrap default variables
+- using media queries
+- adding images in sass
+
 ### Javascript
+Write:
+- using vendor libraries
+- using jquery
 
 ## Back-end
+Write:
+- What is provided by default for the theme
