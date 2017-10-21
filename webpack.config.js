@@ -1,18 +1,20 @@
 var webpack = require('webpack');
 var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 var inProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
+	context: __dirname,
 	entry: {
-		app: [
-			'./assets/js/main.js',
-			'./assets/scss/app.scss'
-		]
+		'iris.js': './assets/js/main.js',
+		'iris.min.js': './assets/js/main.js',
+		'iris.css': './assets/scss/app.scss',
+		'iris.min.css': './assets/scss/app.scss'
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
-		filename: '[name].js'
+		filename: '[name]'
 	},
 	module: {
 		rules: [
@@ -38,9 +40,13 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new ExtractTextPlugin("[name].css"),
-		new webpack.LoaderOptionsPlugin({
-			minimize: inProduction
+		new ExtractTextPlugin("[name]"),
+		new webpack.optimize.UglifyJsPlugin({
+			include: /\.min\.js$/,
+			minimize: true
+		}),
+		new OptimizeCssAssetsPlugin({
+			assetNameRegExp: /\.min\.css$/
 		}),
 		new webpack.ProvidePlugin({
 			$: 'jquery',
@@ -49,10 +55,4 @@ module.exports = {
 			Popper: ['popper.js', 'default']
 		})
 	]
-}
-
-if ( inProduction ) {
-	module.exports.plugins.push(
-		new webpack.optimize.UglifyJsPlugin()
-	);
 }
