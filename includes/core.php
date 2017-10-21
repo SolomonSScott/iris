@@ -8,6 +8,22 @@
 namespace Iris;
 
 /**
+ * Sets up theme defaults and registers support for various WordPress features.
+ */
+function iris_setup() {
+	add_theme_support( 'automatic-feed-links' );
+
+	add_theme_support( 'post-thumbnails' );
+
+	add_theme_support( 'html5', array(
+		'search-form',
+		'gallery',
+		'caption',
+	) );
+}
+add_action( 'after_setup_theme', __NAMESPACE__ . '\\iris_setup' );
+
+/**
  * Enqueue Iris Styles
  */
 function iris_styles() {
