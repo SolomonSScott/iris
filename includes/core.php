@@ -5,6 +5,8 @@
  * @package Iris
  */
 
+namespace Iris;
+
 /**
  * Enqueue Iris Styles
  */
@@ -13,7 +15,7 @@ function iris_styles() {
 
 	wp_enqueue_style( 'iris-css' );
 }
-add_action( 'wp_enqueue_scripts', 'iris_styles' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\iris_styles' );
 
 /**
  * Enqueue Iris Scripts
@@ -23,7 +25,7 @@ function iris_scripts() {
 
 	wp_enqueue_script( 'iris-js' );
 }
-add_action( 'wp_enqueue_scripts', 'iris_scripts' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\iris_scripts' );
 
 /**
  * Register Iris menus
@@ -33,4 +35,4 @@ function register_iris_menus() {
 		'primary' => 'Primary Menu'
 	] );
 }
-add_action( 'init', 'register_iris_menus' );
+add_action( 'init', __NAMESPACE__ . '\\register_iris_menus' );
