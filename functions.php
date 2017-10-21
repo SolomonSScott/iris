@@ -11,3 +11,4 @@
 require_once( __DIR__ . '/constants.php' );
 
 require_once( __DIR__ . '/includes/core.php' );
+require_once( __DIR__ . '/includes/navigation.php' );

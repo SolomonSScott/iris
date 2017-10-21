@@ -1,4 +1,3 @@
-
 <?php
 /**
  * The header.
@@ -16,3 +15,24 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="<?php echo site_url(); ?>" aria-label="<?php echo bloginfo( 'name' ); ?>" title="<?php echo bloginfo( 'name' ); ?>">
+		<?php echo bloginfo( 'name' ); ?>
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<?php
+		if ( has_nav_menu( 'primary' ) ) {
+			wp_nav_menu( [
+				'theme_location'  => 'primary',
+				'menu_class'      => 'navbar-nav',
+				'container'       => 'div',
+				'container_class' => 'collapse navbar-collapse justify-content-end',
+				'container_id'    => 'navbarNav',
+				'walker'          => new Iris_Bootstrap_Walker()
+			] );
+		}
+	?>
+</nav>
