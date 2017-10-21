@@ -5864,3 +5864,18 @@ a.text-dark:focus, a.text-dark:hover {
 
 .invisible {
   visibility: hidden !important; }
+
+.size-full {
+  max-width: 100%;
+  height: auto; }
+
+.alignleft {
+  float: left !important; }
+
+.alignright {
+  float: right !important; }
+
+.aligncenter::after {
+  display: block;
+  clear: both;
+  content: ""; }

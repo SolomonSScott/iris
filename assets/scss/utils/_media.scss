@@ -1,0 +1,19 @@
+////
+/// Utils - Media
+////
+
+.size-full {
+	@include img-fluid;
+}
+
+.alignleft {
+	@include float-left;
+}
+
+.alignright {
+	@include float-right;
+}
+
+.aligncenter {
+	@include clearfix;
+}
