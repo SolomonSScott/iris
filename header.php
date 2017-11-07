@@ -16,22 +16,26 @@
 </head>
 <body <?php body_class(); ?>>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="<?php echo site_url(); ?>" aria-label="<?php echo bloginfo( 'name' ); ?>" title="<?php echo bloginfo( 'name' ); ?>">
-		<?php echo bloginfo( 'name' ); ?>
-	</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-nav" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
+<nav class="navbar">
+	<div class="navbar-brand">
+		<a class="navbar-item" href="<?php echo site_url(); ?>" aria-label="<?php echo bloginfo( 'name' ); ?>" title="<?php echo bloginfo( 'name' ); ?>">
+			<?php echo bloginfo( 'name' ); ?>
+		</a>
+		<button class="button navbar-burger" data-target="primary-nav">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+	</div>
 	<?php
 		if ( has_nav_menu( 'primary' ) ) {
 			wp_nav_menu( [
 				'theme_location'  => 'primary',
-				'menu_class'      => 'navbar-nav',
+				'menu_class'      => 'navbar-end',
 				'container'       => 'div',
-				'container_class' => 'collapse navbar-collapse justify-content-end',
+				'container_class' => 'navbar-menu',
 				'container_id'    => 'primary-nav',
-				'walker'          => new Iris_Bootstrap_Walker()
+				'walker'          => new Iris_Bulma_Walker()
 			] );
 		}
 	?>

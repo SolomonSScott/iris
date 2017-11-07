@@ -3,7 +3,9 @@
 @import "global/fonts";
 @import "global/breakpoints";
 
-@import "~bootstrap/scss/bootstrap";
+@import "~bulma";
+
+@import "~sass-mq";
 
 @import "utils/media";
 @import "utils/typography";

@@ -8,14 +8,18 @@ get_header(); ?>
 
 <?php if ( have_posts() ) : ?>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<div class="jumbotron jumbotron-fluid">
-			<div class="container">
-				<h1 class="display-3"><?php the_title(); ?></h1>
+		<div class="hero is-primary">
+			<div class="hero-body">
+				<div class="container">
+					<h1 class="title"><?php the_title(); ?></h1>
+				</div>
 			</div>
 		</div>
 
 		<div class="container">
-			<?php the_content(); ?>
+			<div class="content">
+				<?php the_content(); ?>
+			</div>
 		</div>
 	<?php endwhile; ?>
 <?php endif; ?>

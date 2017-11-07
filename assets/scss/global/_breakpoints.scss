@@ -2,10 +2,31 @@
 // Theme Breakpoints
 ////
 
-$grid-breakpoints: (
-	xs: 0,
-	sm: 576px,
-	md: 768px,
-	lg: 992px,
-	xl: 1200px
+// To enable support for browsers that do not support @media queries,
+// (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
+// Create a separate stylesheet served exclusively to these browsers,
+// meaning @media queries will be rasterized, relying on the cascade itself
+$mq-responsive: true;
+
+//
+// @example scss
+//.foo {
+//	@include mq($from: mobile, $until: tablet) {
+//		background: red;
+//	}
+//	@include mq($from: tablet) {
+//		background: green;
+//	}
+//}
+//
+$mq-breakpoints: (
+	mobile:  320px,
+	tablet:  740px,
+	desktop: 980px,
+	wide:    1300px
 );
+
+// Define the breakpoint from the $mq-breakpoints list that should
+// be used as the target width when outputting a static stylesheet
+// (i.e. when $mq-responsive is set to 'false').
+$mq-static-breakpoint: desktop;
