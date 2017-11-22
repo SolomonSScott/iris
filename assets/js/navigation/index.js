@@ -1,11 +1,25 @@
 import 'jquery';
 
-// Handle Menu toggle
-const $navToggle = $( '.navbar-burger' );
+const IrisNav = (function() {
+	'use strict';
 
-$navToggle.on( 'click', function ( e ) {
-	e.preventDefault();
-	$( this ).toggleClass( 'is-active' );
-	const $target = $( this ).data( 'target' );
-	$( '#' + $target ).toggleClass( 'is-active' );
-} );
+	let primaryNav;
+
+	// Handle Primary Menu toggle
+	primaryNav = function() {
+		const $navToggle = $( '.navbar-burger' );
+
+		$navToggle.on( 'click', function ( e ) {
+			e.preventDefault();
+			$( this ).toggleClass( 'is-active' );
+			const $target = $( this ).data( 'target' );
+			$( '#' + $target ).toggleClass( 'is-active' );
+		} );
+	};
+
+	return {
+		primaryNav: primaryNav
+	};
+})();
+
+IrisNav.primaryNav();

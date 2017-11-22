@@ -10325,39 +10325,46 @@ return jQuery;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__navigation__ = __webpack_require__(2);
-/**
- * Import Vendor Libraries
- */
 
-/**
- * Custom functionality
- */
 
+__webpack_require__(2);
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* WEBPACK VAR INJECTION */(function($) {
 
+__webpack_require__(0);
 
-// Handle Menu toggle
-const $navToggle = $('.navbar-burger');
+var IrisNav = function () {
+	'use strict';
 
-$navToggle.on('click', function (e) {
-	e.preventDefault();
-	$(this).toggleClass('is-active');
-	const $target = $(this).data('target');
-	$('#' + $target).toggleClass('is-active');
-});
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+	var primaryNav = void 0;
+
+	// Handle Primary Menu toggle
+	primaryNav = function primaryNav() {
+		var $navToggle = $('.navbar-burger');
+
+		$navToggle.on('click', function (e) {
+			e.preventDefault();
+			$(this).toggleClass('is-active');
+			var $target = $(this).data('target');
+			$('#' + $target).toggleClass('is-active');
+		});
+	};
+
+	return {
+		primaryNav: primaryNav
+	};
+}();
+
+IrisNav.primaryNav();
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
 /******/ ]);
